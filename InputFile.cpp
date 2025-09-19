@@ -67,11 +67,11 @@ const vector<string>& InputFile::getDiagram() const {
     return diagram;
 }
 
-const int InputFile::getDiagramLines() const {
+const int& InputFile::getDiagramLines() const {
     return diagramLines;
 }
 
-const int InputFile::getDiagramColumns() const {
+const int& InputFile::getDiagramColumns() const {
     return diagramColumns;
 }
 

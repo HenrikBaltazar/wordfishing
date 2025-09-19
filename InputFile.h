@@ -15,8 +15,8 @@ public:
     explicit InputFile(const string& fileName);
     bool readFile();
     const vector<string>& getDiagram() const;
-    const int getDiagramLines() const;
-    const int getDiagramColumns() const;
+    const int& getDiagramLines() const;
+    const int& getDiagramColumns() const;
     const vector<string>& getWords() const;
 
 

@@ -19,21 +19,21 @@ class wordfishing {
 public:
     wordfishing(const InputFile& file);
     vector<string> solve();
+    const vector<vector<bool>>& getHighlightGrid() const;
 
 private:
     const vector<string>& diagram;
     const vector<string>& words_to_find;
+    const int& rows;
+    const int& cols;
+    vector<vector<bool>> highlight_grid;
+
     vector<string> result_diagram;
-
-
-    int rows;
-    int cols;
-
 
     vector<vector<pair<int, int>>> found_word_coords;
     mutex mtx_results;
 
-    void search_word(const string& word);
+    void search_direction(int direction_index);
 };
 
 #endif // WORDFISHING_H

@@ -6,6 +6,8 @@ using namespace std;
 
 int main() {
     InputFile entryFile("cacapalavras.txt");
+    const string BOLD_ON = "\033[1m";
+    const string BOLD_OFF = "\033[0m";
 
     if (entryFile.readFile()) {
         cout << "Conteudo do arquivo lido com sucesso:" << endl;
@@ -29,11 +31,19 @@ int main() {
         }
 */
         wordfishing solver(entryFile);
-        vector<std::string> solved_diagram = solver.solve();
+        vector<string> solved_diagram = solver.solve();
+        const auto& highlight = solver.getHighlightGrid();
 
         cout << "--- Diagrama Resolvido ---" << endl;
-        for (const std::string& line : solved_diagram) {
-            cout << line << endl;
+        for (int r = 0; r < solved_diagram.size(); ++r) {
+            for (int c = 0; c < solved_diagram[r].size(); ++c) {
+                if (highlight[r][c]) {
+                    cout << BOLD_ON << solved_diagram[r][c] << BOLD_OFF;
+                } else {
+                    cout << solved_diagram[r][c];
+                }
+            }
+            cout << endl;
         }
 
     } else {
