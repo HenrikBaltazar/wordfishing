@@ -24,7 +24,7 @@ private:
     string fileName;
     vector<string> diagram;
     vector<string> words;
-    int diagramLines, diagramColumns;
+    int diagramLines{}, diagramColumns{};
 };
 
 #endif
