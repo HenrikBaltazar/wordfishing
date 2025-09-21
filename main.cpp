@@ -2,7 +2,7 @@
 #include <cstdlib>
 #include <fstream>
 
-#include "InputFile.h" // Inclui a nossa classe para poder usá-la
+#include "InputFile.h"
 #include "wordfishing.h"
 
 using namespace std;
@@ -72,7 +72,6 @@ int main() {
                     cout << "5: Iniciar nova procura" << endl;
                     cout << "6: Sair" << endl;
                     cin >> selection;
-
                     switch (selection) {
                         case 1:
                             for (int r = 0; r < entryFile.getDiagramLines(); ++r) {
@@ -112,7 +111,6 @@ int main() {
                         default:
                             break;
                     }
-                    clearScreen();
                 }while (selection != 5);
             }else {
                 cout << "Arquivo mal-formatado" << endl;
