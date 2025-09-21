@@ -10,7 +10,7 @@
 
 using namespace std;
 
-InputFile::InputFile(const string& fileName)
+InputFile::InputFile(string fileName)
 : fileName(fileName) {}
 
 bool InputFile::readFile() {

@@ -12,7 +12,8 @@ using namespace std;
 
 class InputFile {
 public:
-    explicit InputFile(const string& fileName);
+    explicit InputFile(string fileName);
+
     bool readFile();
     const vector<string>& getDiagram() const;
     const int& getDiagramLines() const;

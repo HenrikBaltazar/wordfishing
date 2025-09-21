@@ -15,11 +15,25 @@
 
 using namespace std;
 
+enum Direction {
+    DIREITA, ESQUERDA, BAIXO, CIMA,
+    DIREITA_BAIXO, ESQUERDA_CIMA, DIREITA_CIMA, ESQUERDA_BAIXO
+};
+
+struct FoundWordInfo {
+    std::string word;
+    int start_row;
+    int start_col;
+    Direction direction;
+    std::vector<std::pair<int, int>> path;
+};
+
 class wordfishing {
 public:
     wordfishing(const InputFile& file);
-    vector<string> solve();
+    vector<string> solvedDiagram();
     const vector<vector<bool>>& getHighlightGrid() const;
+    string getSummary();
 
 private:
     const vector<string>& diagram;
@@ -29,11 +43,13 @@ private:
     vector<vector<bool>> highlight_grid;
 
     vector<string> result_diagram;
-
-    vector<vector<pair<int, int>>> found_word_coords;
+    vector<FoundWordInfo> findings;
     mutex mtx_results;
 
-    void search_direction(int direction_index);
+    void search(int direction_index);
+    void setDirection(int direction_index);
+
+    string getDirection(Direction dir);
 };
 
 #endif // WORDFISHING_H
